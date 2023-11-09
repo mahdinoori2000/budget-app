@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 
 ruby '3.2.2'
@@ -10,6 +8,8 @@ gem 'rails', '~> 7.1.1'
 # Gem Tailwind CSS
 gem 'tailwindcss-rails'
 
+# Gem Devise
+gem 'devise'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
