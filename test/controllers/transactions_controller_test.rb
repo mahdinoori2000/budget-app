@@ -1,52 +1,52 @@
 require 'test_helper'
 
-class TransactionsControllerTest < ActionDispatch::IntegrationTest
+class PaymentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @transaction = transactions(:one)
+    @payment = payments(:one)
   end
 
   test 'should get index' do
-    get transactions_url
+    get payments_url
     assert_response :success
   end
 
   test 'should get new' do
-    get new_transaction_url
+    get new_payment_url
     assert_response :success
   end
 
-  test 'should create transaction' do
-    assert_difference('Transaction.count') do
-      post transactions_url,
-           params: { transaction: { amount: @transaction.amount, author_id: @transaction.author_id,
-                                    created_at: @transaction.created_at, name: @transaction.name } }
+  test 'should create payment' do
+    assert_difference('payment.count') do
+      post payments_url,
+           params: { payment: { amount: @payment.amount, author_id: @payment.author_id,
+                                    created_at: @payment.created_at, name: @payment.name } }
     end
 
-    assert_redirected_to transaction_url(Transaction.last)
+    assert_redirected_to payment_url(payment.last)
   end
 
-  test 'should show transaction' do
-    get transaction_url(@transaction)
+  test 'should show payment' do
+    get payment_url(@payment)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_transaction_url(@transaction)
+    get edit_payment_url(@payment)
     assert_response :success
   end
 
-  test 'should update transaction' do
-    patch transaction_url(@transaction),
-          params: { transaction: { amount: @transaction.amount, author_id: @transaction.author_id,
-                                   created_at: @transaction.created_at, name: @transaction.name } }
-    assert_redirected_to transaction_url(@transaction)
+  test 'should update payment' do
+    patch payment_url(@payment),
+          params: { payment: { amount: @payment.amount, author_id: @payment.author_id,
+                                   created_at: @payment.created_at, name: @payment.name } }
+    assert_redirected_to payment_url(@payment)
   end
 
-  test 'should destroy transaction' do
-    assert_difference('Transaction.count', -1) do
-      delete transaction_url(@transaction)
+  test 'should destroy payment' do
+    assert_difference('payment.count', -1) do
+      delete payment_url(@payment)
     end
 
-    assert_redirected_to transactions_url
+    assert_redirected_to payments_url
   end
 end

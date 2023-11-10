@@ -1,47 +1,47 @@
 require 'application_system_test_case'
 
-class TransactionsTest < ApplicationSystemTestCase
+class PaymentsTest < ApplicationSystemTestCase
   setup do
-    @transaction = transactions(:one)
+    @payment = payments(:one)
   end
 
   test 'visiting the index' do
-    visit transactions_url
-    assert_selector 'h1', text: 'Transactions'
+    visit payments_url
+    assert_selector 'h1', text: 'payments'
   end
 
-  test 'should create transaction' do
-    visit transactions_url
-    click_on 'New transaction'
+  test 'should create payment' do
+    visit payments_url
+    click_on 'New payment'
 
-    fill_in 'Amount', with: @transaction.amount
-    fill_in 'Author', with: @transaction.author_id
-    fill_in 'Created at', with: @transaction.created_at
-    fill_in 'Name', with: @transaction.name
-    click_on 'Create Transaction'
+    fill_in 'Amount', with: @payment.amount
+    fill_in 'Author', with: @payment.author_id
+    fill_in 'Created at', with: @payment.created_at
+    fill_in 'Name', with: @payment.name
+    click_on 'Create payment'
 
-    assert_text 'Transaction was successfully created'
+    assert_text 'payment was successfully created'
     click_on 'Back'
   end
 
-  test 'should update Transaction' do
-    visit transaction_url(@transaction)
-    click_on 'Edit this transaction', match: :first
+  test 'should update payment' do
+    visit payment_url(@payment)
+    click_on 'Edit this payment', match: :first
 
-    fill_in 'Amount', with: @transaction.amount
-    fill_in 'Author', with: @transaction.author_id
-    fill_in 'Created at', with: @transaction.created_at
-    fill_in 'Name', with: @transaction.name
-    click_on 'Update Transaction'
+    fill_in 'Amount', with: @payment.amount
+    fill_in 'Author', with: @payment.author_id
+    fill_in 'Created at', with: @payment.created_at
+    fill_in 'Name', with: @payment.name
+    click_on 'Update payment'
 
-    assert_text 'Transaction was successfully updated'
+    assert_text 'payment was successfully updated'
     click_on 'Back'
   end
 
-  test 'should destroy Transaction' do
-    visit transaction_url(@transaction)
-    click_on 'Destroy this transaction', match: :first
+  test 'should destroy payment' do
+    visit payment_url(@payment)
+    click_on 'Destroy this payment', match: :first
 
-    assert_text 'Transaction was successfully destroyed'
+    assert_text 'payment was successfully destroyed'
   end
 end
