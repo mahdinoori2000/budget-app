@@ -1,6 +1,5 @@
-<div id="<%= dom_id category %>">
+<div id="<%= dom_id category %>" class="border-2 border-red-500 text-red-500">
   <p>
-    <strong>Name:</strong>
     <%= category.name %>
   </p>
 
@@ -11,7 +10,7 @@
 
   <p>
     <strong>Created at:</strong>
-    <%= category.created_at %>
+    <%= category.created_at.strftime('%B %d, %Y') %>
   </p>
 
 </div>
