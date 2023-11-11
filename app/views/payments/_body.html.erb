@@ -1,0 +1,13 @@
+
+
+<div id="transactions">
+  <% @payments.each do |payment| %>
+    <article id="<%= payment.id %>" class="transaction">
+      <div>
+        <p><%= payment.name %></p>
+        <p><%= payment.created_at.strftime('%d-%m-%Y') %></p>
+        <p>$<%= format("%.2f", payment.amount) %></p>
+      </div>
+    </article>
+  <% end %>
+</div>
