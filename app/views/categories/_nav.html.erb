@@ -1,0 +1,11 @@
+<ul class="flex justify-between items-center bg-primary container-fluid p-3">
+    <li class="w-10">
+        <i class="fas fa-arrow-left"></i>
+    </li>
+    <li>
+        <h2 class="text-white">Categories</h2>
+    </li>
+    <li>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+    </li>
+</ul>

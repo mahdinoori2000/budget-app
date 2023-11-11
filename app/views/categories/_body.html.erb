@@ -1,0 +1,14 @@
+<div id="categories">
+  <% @categories.each do |category| %>
+    <div onclick="location.href='<%= category_payments_path(category) %>';" style="cursor: pointer" >
+      <p>
+        <%= category.icon %>
+      </p>
+      <div>
+        <h3><%= category.name %></h3>
+        <%= category.created_at.strftime('%B %d, %Y') %></p>
+      </div>
+      <strong>$<%= category.payments.sum(:amount) %></strong>
+    </div>
+  <% end %>
+</div>

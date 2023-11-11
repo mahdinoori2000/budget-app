@@ -1,15 +1,9 @@
-<p style="color: green"><%= notice %></p>
-<%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<div>
+  <p style="color: green"><%= notice %></p>
+  
+  <%= render "nav" %>
 
-<h1>Categories</h1>
+  <%= render "body" %>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+  <%= render "button" %>
 </div>
-
-<%= link_to "New category", new_category_path %>
