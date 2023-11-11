@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Transactions</h1>
+<h2><%= @category.name %></h2>
+
+<div id="transactions">
+  <% @payments.each do |payment| %>
+    <article id="<%= payment.id %>" class="transaction">
+      <p>
+        <strong>Name:</strong>
+        <%= payment.name %>
+      </p>
+
+      <p>
+        <strong>Amount:</strong>
+        $<%= format("%.2f", payment.amount) %>
+      </p>
+
+      <p>
+        <strong>Date:</strong>
+        <%= payment.created_at.strftime('%d-%m-%Y') %>
+      </p>
+    </article>
+  <% end %>
+</div>
+
+<%= link_to "New Transaction", new_payment_path %>
