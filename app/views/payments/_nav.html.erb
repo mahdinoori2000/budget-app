@@ -1,11 +1,5 @@
-<ul class="flex justify-between items-center bg-primary container-fluid p-3">
-    <li class="w-10">
-        <%= button_to "Back", categories_path, method: :get %>
-    </li>
-    <li>
-        <h2 class="text-white"><%= @category.name %> Transactions</h2>
-    </li>
-    <li>
-        <strong>$<%= @payments.sum(:amount) %></strong>
-    </li>
-</ul>
+<div class="d-flex justify-content-between" style="margin-bottom: 10px">
+  <%= button_to "Back", categories_path, method: :get, class: "btn btn-primary" %>
+  <h3><%= @category.name %> Transactions</h3>
+  <strong>$<%= @payments.sum(:amount) %></strong>
+</div>

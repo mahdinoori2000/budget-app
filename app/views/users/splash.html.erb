@@ -1,12 +1,12 @@
-<section class="h-[100vh] w-[100%] border-2 border-red-500">
-<div class="h-screen flex flex-col items-center justify-center bg-gray-200">
-  <div class="h-[70vh] flex items-center justify-center text-3xl font-bold">
-  Cash Crafter
+
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="height: 90vh">
+<h1>Cash Crafter</h1>
+</div>
+
+<div class="fixed-bottom">
+  <div class="d-grid gap-2">
+  <%= link_to "Log IN", new_user_session_path, class: "btn btn-primary" %>
+  <%= link_to "Sign UP", new_user_registration_path, class: "btn btn-primary" %>
   </div>
-  
-  <div class="h-[30vh] flex flex-col justify-around w-full">
-  <%= link_to "Log IN", new_user_session_path, class: "bg-blue-500; hover:bg-blue-700; text-white; font-bold; py-2; px-4; rounded;" %>
-  <%= link_to "Sign UP", new_user_registration_path, class: "bg-green-500; hover:bg-green-700; text-white; font-bold; py-2; px-4; rounded;" %>
-  </div>
-  </div>
-</section>
+</div>
