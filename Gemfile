@@ -4,7 +4,7 @@ ruby '3.2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.1'
-
+gem 'sassc-rails', '~> 2.1'
 # Gem Tailwind CSS
 # Font Awesome icons
 gem "font-awesome-sass", "~> 6.4.2"
@@ -73,4 +73,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+gem 'jquery-rails'
