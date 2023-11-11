@@ -1,6 +1,4 @@
 class PaymentsController < ApplicationController
-  # @payments = Payment.joins(:category_payments).where(category_payments: { category_id: @category.id }).order(created_at: :desc)
-
   def index
     @category = Category.find(params[:category_id])
     @payments = @category.payments.order(created_at: :desc)
@@ -15,27 +13,26 @@ class PaymentsController < ApplicationController
 
   def create
     @categories = Category.where(user_id: current_user.id)
-  
-    unless params[:payment][:category_id].nil?
-      category_id = params[:payment][:category_id]
-      @payment = Payment.new(payment_params)
-  
-      if @payment.save
-        @category_payment = CategoryPayment.new(category_id: category_id, payment_id: @payment.id)
-  
-        if @category_payment.save
-          redirect_to category_payments_path(category_id: category_id)
-        else
-          flash[:alert] = 'CategoryPayment was not saved.'
-          render :new
-        end
+
+    return if params[:payment][:category_id].nil?
+
+    category_id = params[:payment][:category_id]
+    @payment = Payment.new(payment_params)
+
+    if @payment.save
+      @category_payment = CategoryPayment.new(category_id:, payment_id: @payment.id)
+
+      if @category_payment.save
+        redirect_to category_payments_path(category_id:)
       else
-        flash[:alert] = 'Payment was not saved.'
+        flash[:alert] = 'CategoryPayment was not saved.'
         render :new
       end
+    else
+      flash[:alert] = 'Payment was not saved.'
+      render :new
     end
   end
-
 
   def destroy
     @payment.destroy!
@@ -55,6 +52,7 @@ class PaymentsController < ApplicationController
   def payment_params
     params.require(:payment).permit(:author_id, :name, :amount)
   end
+
   def category_payment_params
     params.require(:category_payment).permit(:payment_id, :category_id)
   end
