@@ -6,7 +6,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rails', '~> 7.1.1'
 
 # Gem Tailwind CSS
-gem 'tailwindcss-rails'
 # Font Awesome icons
 gem "font-awesome-sass", "~> 6.4.2"
 # Gem Devise
@@ -73,3 +72,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem "tailwindcss-rails", "~> 2.0"
