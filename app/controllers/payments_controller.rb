@@ -24,7 +24,6 @@ class PaymentsController < ApplicationController
         @category_payment = CategoryPayment.new(category_id: category_id, payment_id: @payment.id)
   
         if @category_payment.save
-          flash[:notice] = 'Payment and CategoryPayment were successfully created.'
           redirect_to category_payments_path(category_id: category_id)
         else
           flash[:alert] = 'CategoryPayment was not saved.'
