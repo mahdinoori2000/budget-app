@@ -19,6 +19,8 @@ RSpec.feature 'Payment page', type: :feature do
 
     it 'shows payments for a category' do
       expect(page).to have_content('Transactions')
+    end
+    it 'shows payments for a category' do
       expect(page).to have_content(@category1.name)
       expect(page).to have_content("#{@payment1.name}")
       expect(page).to have_content("$#{@payment1.amount}")
